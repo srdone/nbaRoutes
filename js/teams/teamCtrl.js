@@ -15,8 +15,11 @@ app.controller('TeamController', function($scope, $routeParams, teamService, tea
   $scope.homeTeam = teamService.teamDetails[$routeParams.team].teamName;
 
   $scope.submitGame = function() {
-    teamService.addNewGame($scope.newGame).then(function () {
+    $scope.newGame.homeTeam = $routeParams.team;
+    teamService.addNewGame($scope.newGame).then(function (response) {
+      debugger;
       teamService.getTeamData($routeParams.team).then(function (newTeamData) {
+        debugger;
         $scope.teamData = newTeamData;
         $scope.newGame = {};
         $scope.showNewGameForm = false;
