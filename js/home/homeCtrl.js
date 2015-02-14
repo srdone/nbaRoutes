@@ -13,6 +13,4 @@ app.controller('HomeController', function($scope, allTeamData, teamService) {
     $scope.allTeamData.push(teamData);
   });
 
-  console.log(allTeamData);
-
 });
